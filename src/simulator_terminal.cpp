@@ -52,7 +52,7 @@ namespace Nos3
 {
     REGISTER_HARDWARE_MODEL(SimTerminal,"SimTerminal");
 
-    ItcLogger::Logger *sim_logger;
+    extern ItcLogger::Logger *sim_logger; // defined by the host executable
 
 
     // Constructors
