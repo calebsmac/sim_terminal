@@ -25,9 +25,13 @@ set(sim_terminal_libs
     ${Boost_LIBRARIES}
     ${ITC_Common_LIBRARIES}
     ${NOSENGINE_LIBRARIES}
-    readline
-    history
 )
+if(APPLE)
+    # macOS ships readline and history as one library, libedit.
+    list(APPEND sim_terminal_libs edit)
+else()
+    list(APPEND sim_terminal_libs readline history)
+endif()
  
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH}:$ORIGIN/../lib") # Pick up .so in install directory
 
